@@ -17,13 +17,11 @@ namespace UITestRESTCarAsync
         [ClassInitialize]
         public static void Setup(TestContext context)
         {
-            //_driver = new ChromeDriver(DriverDirectory); // fast
+            _driver = new ChromeDriver(DriverDirectory); 
             // if your Chrome browser was updated, you must update the driver as well ...
             //    https://chromedriver.chromium.org/downloads
-            //_driver = new FirefoxDriver(DriverDirectory);  // slow
-            _driver = new EdgeDriver(DriverDirectory); //  fast
-            // Driver file must be renamed to MicrosoftWebDriver.exe OR msedgedriver.exe
-            // depending on the version of Selenium?
+            //_driver = new FirefoxDriver(DriverDirectory); 
+            //_driver = new EdgeDriver(DriverDirectory); 
         }
 
         [ClassCleanup]
@@ -61,6 +59,11 @@ namespace UITestRESTCarAsync
 
             // XPath, an advanced option to use By.XPath(...)
             // https://www.guru99.com/handling-dynamic-selenium-webdriver.html
+        }
+
+        private void pause(int v)
+        {
+            Thread.Sleep(v * 1000);
         }
     }
 }
